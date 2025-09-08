@@ -1,0 +1,28 @@
+{
+  "version": "1",
+  "name": "Follow @yokozoeth",
+  "description": "Quick way to follow @yokozoeth on Twitter/X",
+  "icon": "https://yokozoeth.vercel.app/icon.png",
+  "splashImage": "https://yokozoeth.vercel.app/splash.png",
+  "splashBackgroundColor": "#1DA1F2",
+  "homeUrl": "https://yokozoeth.vercel.app/",
+  "author": {
+    "name": "ukhy89",
+    "url": "https://yokozoeth.vercel.app/",
+    "fid": 0
+  },
+  "embedImage": "https://yokozoeth.vercel.app/embed-image.png",
+  "embedUrl": "https://yokozoeth.vercel.app/",
+  "button": {
+    "title": "Follow @yokozoeth",
+    "action": {
+      "type": "link", 
+      "url": "https://x.com/yokozoeth?t=c6QKwS7QZvHzxnvbBlGpJw&s=09"
+    }
+  },
+  "permissions": [
+    "user:read",
+    "external:open"
+  ],
+  "categories": ["social"]
+}
