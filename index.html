@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Follow @yokozoeth</title>
     
-    <!-- Critical: Farcaster Frame Meta Tags (must be exact) -->
+    <!-- Farcaster Frame Meta Tags - CORRECTED -->
     <meta property="fc:frame" content="vNext">
     <meta property="fc:frame:title" content="Follow @yokozoeth">
     <meta property="fc:frame:description" content="Quick way to follow @yokozoeth on Twitter/X">
@@ -17,7 +17,7 @@
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Follow @yokozoeth">
-    <meta property="og:description" content="Quick way to follow @yokozoeth on Twitter/X">
+    <meta property="og:description" content="🚀 Building amazing things on the web 💡 Sharing insights about tech and innovation 🌟 Join the community!">
     <meta property="og:image" content="https://yokozoeth.vercel.app/embed-image.png">
     <meta property="og:url" content="https://yokozoeth.vercel.app/">
     <meta property="og:type" content="website">
@@ -25,7 +25,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Follow @yokozoeth">
-    <meta name="twitter:description" content="Quick way to follow @yokozoeth on Twitter/X">
+    <meta name="twitter:description" content="🚀 Building amazing things on the web 💡 Sharing insights about tech and innovation">
     <meta name="twitter:image" content="https://yokozoeth.vercel.app/embed-image.png">
     
     <style>
@@ -33,11 +33,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            overflow-x: hidden;
         }
 
         body {
@@ -49,46 +44,59 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Fallback for very old browsers */
-        body::before {
-            content: '';
+        /* Loading state while SDK initializes */
+        .loading-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #1DA1F2;
-            z-index: -1;
+            background: linear-gradient(135deg, #1DA1F2 0%, #0d8bd9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 40px;
             text-align: center;
             max-width: 400px;
             width: 100%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 0.8s ease-out;
-            position: relative;
-            z-index: 1;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .container.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .avatar {
@@ -104,13 +112,12 @@
             font-weight: bold;
             color: white;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border: 3px solid rgba(255, 255, 255, 0.3);
         }
 
         .username {
             font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 5px;
+            font-weight: bold;
+            margin-bottom: 10px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
@@ -118,14 +125,12 @@
             font-size: 16px;
             opacity: 0.9;
             margin-bottom: 20px;
-            font-weight: 500;
         }
 
         .description {
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.5;
             margin-bottom: 30px;
-            opacity: 0.95;
         }
 
         .follow-button {
@@ -135,31 +140,38 @@
             border-radius: 50px;
             padding: 15px 30px;
             font-size: 18px;
-            font-weight: 700;
+            font-weight: bold;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
         }
 
         .follow-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .follow-button:active {
-            transform: translateY(-1px);
+            transform: translateY(0);
         }
 
         .powered-by {
-            margin-top: 25px;
+            margin-top: 20px;
             font-size: 12px;
-            opacity: 0.7;
-            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        .error-message {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
         }
 
         /* Mobile responsiveness */
@@ -182,7 +194,17 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContainer" class="container">
+        <div id="errorMessage" class="error-message">
+            ⚠️ Failed to initialize MiniApp SDK. Please refresh the page.
+        </div>
+        
         <div class="avatar">Y</div>
         <div class="username">Yokozoeth</div>
         <div class="handle">@yokozoeth</div>
@@ -194,17 +216,107 @@
         <a href="https://x.com/yokozoeth" 
            target="_blank" 
            rel="noopener noreferrer"
-           class="follow-button">
+           class="follow-button"
+           id="followButton">
             Follow on X
         </a>
         <div class="powered-by">⚡ Mini App</div>
     </div>
 
-    <script>
-        // Simple click tracking
-        document.querySelector('.follow-button').addEventListener('click', function() {
-            console.log('Follow button clicked!');
-        });
+    <!-- Farcaster MiniApp SDK -->
+    <script type="module">
+        let sdk;
+        
+        async function initializeMiniApp() {
+            try {
+                console.log('🚀 Initializing Farcaster MiniApp SDK...');
+                
+                // Import the SDK from CDN
+                const { sdk: farcasterSdk } = await import('https://esm.sh/@farcaster/miniapp-sdk@0.1.0');
+                sdk = farcasterSdk;
+                
+                console.log('✅ SDK imported successfully');
+                
+                // Wait for DOM to be ready
+                if (document.readyState === 'loading') {
+                    await new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve));
+                }
+                
+                console.log('📱 DOM ready, calling sdk.actions.ready()...');
+                
+                // This is the CRITICAL call that fixes "Ready not called" error
+                await sdk.actions.ready();
+                
+                console.log('✨ MiniApp is ready!');
+                
+                // Hide loading screen and show content
+                showContent();
+                
+                // Set up click tracking
+                setupEventListeners();
+                
+            } catch (error) {
+                console.error('❌ Failed to initialize MiniApp:', error);
+                showError();
+            }
+        }
+        
+        function showContent() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const mainContainer = document.getElementById('mainContainer');
+            
+            // Hide loading screen
+            loadingScreen.classList.add('hidden');
+            
+            // Show main content with animation
+            setTimeout(() => {
+                mainContainer.classList.add('visible');
+            }, 100);
+        }
+        
+        function showError() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const mainContainer = document.getElementById('mainContainer');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            loadingScreen.classList.add('hidden');
+            errorMessage.style.display = 'block';
+            mainContainer.classList.add('visible');
+        }
+        
+        function setupEventListeners() {
+            const followButton = document.getElementById('followButton');
+            
+            if (followButton) {
+                followButton.addEventListener('click', function(e) {
+                    console.log('📲 Follow button clicked!');
+                    
+                    // Add visual feedback
+                    this.style.transform = 'translateY(-1px)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                    
+                    // Optional: Track with SDK if available
+                    if (sdk && sdk.actions && sdk.actions.openUrl) {
+                        e.preventDefault();
+                        sdk.actions.openUrl('https://x.com/yokozoeth');
+                    }
+                });
+            }
+        }
+        
+        // Start initialization
+        initializeMiniApp();
+        
+        // Fallback timeout
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (!loadingScreen.classList.contains('hidden')) {
+                console.warn('⚠️ SDK initialization timeout, showing content anyway');
+                showContent();
+            }
+        }, 10000); // 10 second timeout
     </script>
 </body>
 </html>
