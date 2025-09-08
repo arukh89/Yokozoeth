@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Follow @yokozoeth</title>
     
+    <!-- Critical: Farcaster Frame Meta Tags (must be exact) -->
+    <meta property="fc:frame" content="vNext">
+    <meta property="fc:frame:title" content="Follow @yokozoeth">
+    <meta property="fc:frame:description" content="Quick way to follow @yokozoeth on Twitter/X">
+    <meta property="fc:frame:image" content="https://yokozoeth.vercel.app/embed-image.png">
+    <meta property="fc:frame:image:aspect_ratio" content="1.91:1">
+    <meta property="fc:frame:button:1" content="Follow on X">
+    <meta property="fc:frame:button:1:action" content="link">
+    <meta property="fc:frame:button:1:target" content="https://x.com/yokozoeth">
+    
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Follow @yokozoeth">
-    <meta property="og:description" content="🚀 Building amazing things on the web 💡 Sharing insights about tech and innovation 🌟 Join the community!">
+    <meta property="og:description" content="Quick way to follow @yokozoeth on Twitter/X">
     <meta property="og:image" content="https://yokozoeth.vercel.app/embed-image.png">
     <meta property="og:url" content="https://yokozoeth.vercel.app/">
     <meta property="og:type" content="website">
     
-    <!-- Farcaster Frame Meta Tags -->
-    <meta name="fc:frame" content="vNext">
-    <meta name="fc:frame:title" content="Follow @yokozoeth">
-    <meta name="fc:frame:description" content="Quick way to follow @yokozoeth on Twitter/X">
-    <meta name="fc:frame:image" content="https://yokozoeth.vercel.app/embed-image.png">
-    <meta name="fc:frame:image:aspect_ratio" content="1.91:1">
-    <meta name="fc:frame:button:1" content="Follow on 𝕏">
-    <meta name="fc:frame:button:1:action" content="link">
-    <meta name="fc:frame:button:1:target" content="https://x.com/yokozoeth?t=c6QKwS7QZvHzxnvbBlGpJw&s=09">
-    
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Follow @yokozoeth">
-    <meta name="twitter:description" content="🚀 Building amazing things on the web 💡 Sharing insights about tech and innovation">
+    <meta name="twitter:description" content="Quick way to follow @yokozoeth on Twitter/X">
     <meta name="twitter:image" content="https://yokozoeth.vercel.app/embed-image.png">
     
     <style>
@@ -179,37 +179,10 @@
                 font-size: 32px;
             }
         }
-
-        /* Loading state */
-        .loading {
-            opacity: 0;
-            animation: loadingFade 1s ease-in-out forwards;
-        }
-
-        @keyframes loadingFade {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Error fallback */
-        .error-message {
-            display: none;
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            color: white;
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
     </style>
 </head>
 <body>
-    <div class="container loading">
-        <div class="error-message" id="errorMessage">
-            ⚠️ Something went wrong. Please refresh the page.
-        </div>
-        
+    <div class="container">
         <div class="avatar">Y</div>
         <div class="username">Yokozoeth</div>
         <div class="handle">@yokozoeth</div>
@@ -218,55 +191,20 @@
             💡 Sharing insights about tech and innovation<br>
             🌟 Join the community!
         </div>
-        <a href="https://x.com/yokozoeth?t=c6QKwS7QZvHzxnvbBlGpJw&s=09" 
+        <a href="https://x.com/yokozoeth" 
            target="_blank" 
            rel="noopener noreferrer"
-           class="follow-button"
-           id="followButton">
-            Follow on 𝕏
+           class="follow-button">
+            Follow on X
         </a>
         <div class="powered-by">⚡ Mini App</div>
     </div>
 
     <script>
-        // Error handling and debugging
-        window.addEventListener('error', function(e) {
-            console.error('Error occurred:', e.error);
-            document.getElementById('errorMessage').style.display = 'block';
+        // Simple click tracking
+        document.querySelector('.follow-button').addEventListener('click', function() {
+            console.log('Follow button clicked!');
         });
-
-        // Ensure DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded successfully');
-            
-            const container = document.querySelector('.container');
-            const followButton = document.getElementById('followButton');
-            
-            // Remove loading class once everything is ready
-            setTimeout(() => {
-                container.classList.remove('loading');
-            }, 100);
-
-            // Click tracking with error handling
-            if (followButton) {
-                followButton.addEventListener('click', function(e) {
-                    console.log('Follow button clicked!');
-                    
-                    // Add visual feedback
-                    this.style.transform = 'translateY(-1px)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                });
-            }
-        });
-
-        // Fallback for older browsers
-        if (!window.addEventListener) {
-            window.attachEvent('onload', function() {
-                console.log('Legacy browser - content loaded');
-            });
-        }
     </script>
 </body>
 </html>
