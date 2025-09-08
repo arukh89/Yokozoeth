@@ -12,7 +12,7 @@
     "splashImageUrl": "https://yokozoeth.vercel.app/splash.png",
     "splashBackgroundColor": "#1DA1F2",
     "subtitle": "Quick X follow",
-    "description": "🚀 Building amazing things on the web 💡 Sharing insights about tech and innovation 🌟 Join the community!",
+    "description": "Building amazing things on the web 💡 Sharing insights about tech and innovation 🌟 Join the community!",
     "primaryCategory": "social",
     "tags": [
       "twitter",
@@ -21,9 +21,9 @@
       "yokozoeth"
     ],
     "heroImageUrl": "https://yokozoeth.vercel.app/embed-image.png",
-    "tagline": "Follow @yokozoeth on X",
-    "ogTitle": "Follow @yokozoeth",
-    "ogDescription": "Quick way to follow @yokozoeth on Twitter/X",
+    "tagline": "Follow yokozoeth on X",
+    "ogTitle": "Follow yokozoeth",
+    "ogDescription": "Quick way to follow yokozoeth on Twitter/X",
     "ogImageUrl": "https://yokozoeth.vercel.app/embed-image.png"
   }
 }
