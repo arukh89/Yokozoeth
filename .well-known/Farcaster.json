@@ -1,18 +1,18 @@
 {
-  "version": "1.0.0",
+  "version": "1",
   "name": "Follow @yokozoeth",
   "description": "Quick way to follow @yokozoeth on Twitter/X",
-  "icon": "https://CHANGE-THIS-URL.vercel.app/icon.png",
-  "splashImage": "https://CHANGE-THIS-URL.vercel.app/splash.png",
+  "icon": "https://yokozoeth.vercel.app/icon.png",
+  "splashImage": "https://yokozoeth.vercel.app/splash.png",
   "splashBackgroundColor": "#1DA1F2",
-  "homeUrl": "https://CHANGE-THIS-URL.vercel.app",
+  "homeUrl": "https://yokozoeth.vercel.app/",
   "author": {
-    "name": "Your Name Here",
-    "url": "https://your-website.com",
+    "name": "ukhy89",
+    "url": "https://yokozoeth.vercel.app/",
     "fid": 0
   },
-  "embedImage": "https://CHANGE-THIS-URL.vercel.app/embed-image.png",
-  "embedUrl": "https://CHANGE-THIS-URL.vercel.app",
+  "embedImage": "https://yokozoeth.vercel.app/embed-image.png",
+  "embedUrl": "https://yokozoeth.vercel.app/",
   "button": {
     "title": "Follow @yokozoeth",
     "action": {
