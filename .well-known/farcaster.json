@@ -4,30 +4,26 @@
     "payload": "eyJkb21haW4iOiJ5b2tvem9ldGgudmVyY2VsLmFwcCJ9",
     "signature": "MHhkZTY0ZTY5YjI0OGE0MTU3NmI5OTQxZjEzOTliZTgwYTc3NWNjOTExOWVkYjI4OTE5OTQxMGVhYjE1ZDE3YjZiMzZmYmNmZTZiMjRhNzQ1ZDc2OWUwNDc5NTI0NzkzMDcwMDA4NDNmNDQyNDgyNzhkOWU5YzM1YTk1OTc2NzA0ODFj"
   },
-  "version": "1",
-  "name": "Follow @yokozoeth",
-  "description": "Quick way to follow @yokozoeth on Twitter/X",
-  "icon": "https://yokozoeth.vercel.app/icon.png",
-  "splashImage": "https://yokozoeth.vercel.app/splash.png",
-  "splashBackgroundColor": "#1DA1F2",
-  "homeUrl": "https://yokozoeth.vercel.app/",
-  "author": {
-    "name": "ukhy89",
-    "url": "https://yokozoeth.vercel.app/",
-    "fid": 250704
-  },
-  "embedImage": "https://yokozoeth.vercel.app/embed-image.png",
-  "embedUrl": "https://yokozoeth.vercel.app/",
-  "button": {
-    "title": "Follow @yokozoeth",
-    "action": {
-      "type": "link", 
-      "url": "https://x.com/yokozoeth?t=c6QKwS7QZvHzxnvbBlGpJw&s=09"
-    }
-  },
-  "permissions": [
-    "user:read",
-    "external:open"
-  ],
-  "categories": ["social"]
+  "miniapp": {
+    "version": "1",
+    "name": "Follow @yokozoeth",
+    "iconUrl": "https://yokozoeth.vercel.app/icon.png",
+    "homeUrl": "https://yokozoeth.vercel.app/",
+    "splashImageUrl": "https://yokozoeth.vercel.app/splash.png",
+    "splashBackgroundColor": "#1DA1F2",
+    "subtitle": "Quick X follow",
+    "description": "🚀 Building amazing things on the web 💡 Sharing insights about tech and innovation 🌟 Join the community!",
+    "primaryCategory": "social",
+    "tags": [
+      "twitter",
+      "follow",
+      "social",
+      "yokozoeth"
+    ],
+    "heroImageUrl": "https://yokozoeth.vercel.app/embed-image.png",
+    "tagline": "Follow @yokozoeth on X",
+    "ogTitle": "Follow @yokozoeth",
+    "ogDescription": "Quick way to follow @yokozoeth on Twitter/X",
+    "ogImageUrl": "https://yokozoeth.vercel.app/embed-image.png"
+  }
 }
